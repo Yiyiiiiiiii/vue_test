@@ -6,6 +6,7 @@
 
 <script>
 import Contact from "./";
+import "@/styles/global.less";
 export default {
   components: {
     Contact,
@@ -14,13 +15,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "~@/styles/var.less";
 .Contact-test {
-  position: relative;
-  width: 300px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   border: 2px solid red;
-  margin: 100px auto;
-  background-color: @dark;
+  background: #000;
+  margin: 0 auto;
+  padding-top: 200px;
 }
 </style>
