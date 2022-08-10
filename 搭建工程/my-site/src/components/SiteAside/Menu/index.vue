@@ -1,16 +1,18 @@
 <template>
   <nav class="menu-container">
-    <a
-      :href="item.link"
+    <router-link
+      :exact="item.exact"
+      :to="{ name: item.name }"
       v-for="item in items"
       :key="item.link"
-      :class="{ selected: handleSelect(item) }"
+      active-class="selected"
+      exact-active-class=""
     >
       <div class="icon">
         <Icon :type="item.icon"></Icon>
       </div>
       <span>{{ item.title }}</span>
-    </a>
+    </router-link>
   </nav>
 </template>
 
@@ -23,47 +25,53 @@ export default {
     return {
       items: [
         {
-          link: "/",
+          name: "Home",
           icon: "code",
           title: "首页",
-          selected: true,
+          // exact 只有精确匹配到导航路径，才会添加激活类样式
+          // active-class="selected"  激活类样式名 默认值router-link-active
+          // exact-active-class="" 激活类样式名 默认值router-link-exact-active
+          exact: true,
         },
         {
-          link: "/blog",
+          name: "Blog",
           icon: "blog",
           title: "文章",
-          startwith: true, //开头是blog的就为选中
+          exact: false,
         },
         {
-          link: "/about",
+          name: "About",
           icon: "about",
           title: "关于我",
+          exact: true,
         },
         {
-          link: "/code",
+          name: "Project",
           icon: "code",
           title: "项目&效果",
+          exact: true,
         },
         {
-          link: "/chat",
+          name: "Message",
           icon: "chat",
           title: "留言板",
+          exact: true,
         },
       ],
     };
   },
-  methods: {
-    handleSelect(item) {
-      var link = item.link.toLowerCase(); //菜单的地址链接 toLowerCase变小写
-      var pathName = location.pathname.toLowerCase(); //浏览器地址链接
-      //如果元素中有statwith存在且为true,返回浏览器开头是否包含link部分的判断
-      if (item.startwith) {
-        return pathName.startsWith(link);
-      } else {
-        return pathName === link;
-      }
-    },
-  },
+  // methods: {
+  //   handleSelect(item) {
+  //     var link = item.link.toLowerCase(); //菜单的地址链接 toLowerCase变小写
+  //     var pathName = location.pathname.toLowerCase(); //浏览器地址链接
+  //     //如果元素中有statwith存在且为true,返回浏览器开头是否包含link部分的判断
+  //     if (item.startwith) {
+  //       return pathName.startsWith(link);
+  //     } else {
+  //       return pathName === link;
+  //     }
+  //   },
+  // },
 };
 </script>
 
@@ -77,7 +85,7 @@ export default {
     display: flex;
     padding: 0 50px;
     align-items: center;
-    height: 45px;
+    height: 40px;
     &:hover {
       color: #fff;
     }

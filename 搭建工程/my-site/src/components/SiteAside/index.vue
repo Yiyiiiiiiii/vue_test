@@ -2,6 +2,7 @@
   <div class="siteAside-container">
     <Avatar
       url="https://img2.baidu.com/it/u=4172589341,3697363131&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1660237200&t=7519b59d3232648774c40f0ce6366b1c"
+      :size="120"
     ></Avatar>
     <h1 class="title">Yiiiii</h1>
     <Menu></Menu>
@@ -30,14 +31,16 @@ export default {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  box-sizing: border-box;
+  background-color: @dark;
+  padding-top: 20px;
 }
 .avatar-img {
   margin: 0 auto;
 }
 .title {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: @lightWords;
 }
 .footer {

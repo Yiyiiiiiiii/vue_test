@@ -70,7 +70,7 @@ export default {
     a {
       display: flex;
       align-items: center;
-      font-size: 14px;
+      font-size: 12px;
       .Icon {
         font-size: 26px;
         margin-right: 5px;
