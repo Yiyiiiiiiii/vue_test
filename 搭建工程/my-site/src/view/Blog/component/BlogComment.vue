@@ -1,23 +1,21 @@
 <template>
-  <div class="message-container" ref="messageContainer">
+  <div class="blog-comment-container">
     <MessageArea
       title="评论列表"
       :subTitle="`(${data.total})`"
       :list="data.rows"
       :isListLoading="isLoading"
       @submit="handleSubmit"
-    >
-    </MessageArea>
+    ></MessageArea>
   </div>
 </template>
 
 <script>
-import MessageArea from "@/components/MessageArea/index.vue";
+import MessageArea from "@/components/MessageArea";
 import fetchData from "@/mixins/fetchData";
 import { getComments, postComment } from "@/api/blog";
-import mainScroll from "@/mixins/mainScroll.js";
 export default {
-  mixins: [fetchData({ total: 0, rows: [] }), mainScroll("messageContainer")],
+  mixins: [fetchData({ total: 0, rows: [] })],
   components: {
     MessageArea,
   },
@@ -77,16 +75,8 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
-.message-container {
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  padding: 20px;
-}
-.message-area-container {
-  margin: 0 auto;
+<style scope lang="less">
+.blog-comment-container {
+  margin: 30px 0;
 }
 </style>

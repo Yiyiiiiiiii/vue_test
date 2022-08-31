@@ -1,45 +1,43 @@
 <template>
   <ul class="Contact-container">
     <li>
-      <a href="#">
+      <a target="_blank" :href="data.github">
         <div class="Icon">
           <Icon type="github"></Icon>
         </div>
-        <p>Yi-iii</p>
+        <p>{{ data.githubName }}</p>
       </a>
     </li>
     <li>
-      <a href="mailto:2996108859@qq.com">
+      <a :href="`mailto:${data.mail}`">
         <div class="Icon">
           <Icon type="mail"></Icon>
         </div>
-        <p>2996108859@qq.com</p>
+        <p>{{ data.mail }}</p>
       </a>
     </li>
     <li>
       <a
-        href="tencent://message/?Menu=yes&uin=2996108859&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45"
+        :href="`tencent://message/?Menu=yes&uin=${data.qq}&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45`"
       >
         <div class="Icon">
           <Icon type="qq"></Icon>
         </div>
-        <p>2996108859</p>
+        <p>{{ data.qq }}</p>
       </a>
       <div class="pop">
-        <img src="../../../assets/qq.jpg" alt="" />
+        <img :src="data.qqQrCode" alt="" />
       </div>
     </li>
     <li>
-      <a
-        href="http://www.duyiedu.com/source/img/%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BA%8C%E7%BB%B4%E7%A0%81.png"
-      >
+      <a>
         <div class="Icon weixin">
           <Icon type="weixin"></Icon>
         </div>
-        <p>Yiiii</p>
+        <p>{{ data.weixin }}</p>
       </a>
       <div class="pop">
-        <img src="../../../assets/weixin.jpg" alt="" />
+        <img :src="data.weixinQrCode" alt="" />
       </div>
     </li>
   </ul>
@@ -47,9 +45,13 @@
 
 <script>
 import Icon from "@/components/Icon/index.vue";
+import { mapState } from "vuex";
 export default {
   components: {
     Icon,
+  },
+  computed: {
+    ...mapState("setting", ["data"]),
   },
 };
 </script>

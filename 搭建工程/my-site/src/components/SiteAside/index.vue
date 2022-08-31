@@ -1,26 +1,30 @@
 <template>
   <div class="siteAside-container">
-    <Avatar
-      url="https://img2.baidu.com/it/u=4172589341,3697363131&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1660237200&t=7519b59d3232648774c40f0ce6366b1c"
-      :size="120"
-    ></Avatar>
-    <h1 class="title">Yiiiii</h1>
+    <template v-if="data">
+      <Avatar :url="data.avatar" :size="120"></Avatar>
+      <h1 class="title">{{ data.siteTitle }}</h1>
+    </template>
+
     <Menu></Menu>
-    <Contact></Contact>
-    <p class="footer">黑ICP备17001719号</p>
+    <Contact v-if="data"></Contact>
+    <p v-if="data" class="footer">{{ data.icp }}</p>
   </div>
 </template>
-
+  
 <script>
 import Avatar from "@/components/Avatar";
 import Menu from "./Menu";
 import Contact from "./Contact";
+import { mapState } from "vuex";
 
 export default {
   components: {
     Avatar,
     Menu,
     Contact,
+  },
+  computed: {
+    ...mapState("setting", ["data"]),
   },
 };
 </script>

@@ -13,21 +13,29 @@
     "test:Contact": "vue serve ./src/components/SiteAside/Contact/test.vue",
     "test:Menu": "vue serve ./src/components/SiteAside/Menu/test.vue",
     "test:SiteAside": "vue serve ./src/components/SiteAside/test.vue",
-    "test:Layout": "vue serve ./src/components/Layout/test.vue"
+    "test:Layout": "vue serve ./src/components/Layout/test.vue",
+    "test:RightList": "vue serve ./src/view/Blog/component/Right-List-test.vue",
+    "test:DateForm": "vue serve ./src/components/MessageArea/DateForm-test.vue",
+    "test:DateList": "vue serve ./src/components/MessageArea/DateList-test.vue",
+    "test:MessageArea": "vue serve ./src/components/MessageArea/test.vue"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "highlight.js": "^11.6.0",
     "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
+    "querystring": "^0.2.1",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "cache-loader": "^4.1.0",
     "less": "^3.0.4",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "webpack-bundle-analyzer": "^4.6.1"
   }
 }

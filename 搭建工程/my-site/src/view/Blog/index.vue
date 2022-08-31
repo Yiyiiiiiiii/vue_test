@@ -1,10 +1,23 @@
 <template>
-  <div>文章</div>
+  <Layout>
+    <BlogList />
+    <template #right>
+      <BlogCategory />
+    </template>
+  </Layout>
 </template>
 
 <script>
-export default {};
+import Layout from "@/components/Layout";
+import BlogList from "./component/BlogList";
+import BlogCategory from "./component/BlogCategory";
+export default {
+  components: {
+    Layout,
+    BlogList,
+    BlogCategory,
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>
